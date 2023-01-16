@@ -17,7 +17,9 @@ info = {
   braille: ARGV[1]
 }
 
-
+night_writer = 
+NightWriter.new(info)
+p night_writer.creation_message
 # message = File.open(ARGV[0],"r")
 # message.close
 
