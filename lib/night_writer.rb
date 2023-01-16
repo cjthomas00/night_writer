@@ -1,10 +1,27 @@
-message = File.open(ARGV[0],"r")
-counter = message.read.chars.size
-message.close
+class NightWriter 
+  attr_reader :message,
+              :braille
+          
+  def initialize(info)
+    @message = info[:message]
+    @braille = info[:braille]
+  end
+
+  def creation_message
+    "Created '#{@braille}' containing #{@message.chars.size} characters"
+  end
+end
+
+info = { 
+  message: ARGV[0],
+  braille: ARGV[1]
+}
 
 
-braille = File.open(ARGV[1], "w")
-file = ARGV[1]
-braille.close
+# message = File.open(ARGV[0],"r")
+# message.close
 
-puts "Created '#{file}' containing #{counter} characters"
+
+# braille = File.open(ARGV[1], "w")
+# file = ARGV[1]
+# braille.close
