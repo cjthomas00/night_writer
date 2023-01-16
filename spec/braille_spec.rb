@@ -42,4 +42,11 @@ RSpec.describe Braille do
       expect(@braille.alphabet).to eq(alphabet)
     end
   end
+
+  describe '#braille_translator' do
+    it 'converts a letter to braille equivalent' do
+      a = "O.\n..\n.."
+      expect(@braille.braille_translator("a")).to eq(a)
+    end
+  end
 end
