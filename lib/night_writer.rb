@@ -8,7 +8,7 @@ class NightWriter
   end
 
   def creation_message
-    "Created '#{@braille}' containing #{@message.chars.size} characters"
+    "Created #{@braille} containing #{@message.chars.size} characters"
   end
 end
 
@@ -20,10 +20,3 @@ info = {
 night_writer = 
 NightWriter.new(info)
 p night_writer.creation_message
-# message = File.open(ARGV[0],"r")
-# message.close
-
-
-# braille = File.open(ARGV[1], "w")
-# file = ARGV[1]
-# braille.close
