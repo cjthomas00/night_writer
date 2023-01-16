@@ -8,7 +8,15 @@ class NightWriter
   end
 
   def creation_message
-    "Created #{@braille_file} containing #{@message_file.chars.size} characters"
+    character_count = File.read(@message_file).chars.size
+    "Created #{@braille_file} containing #{character_count} characters"
+  end
+
+  def write_contents
+    message_contents = 
+    File.read(@message_file)
+      File.open(@braille_file, "w") { |file| file.write(message_contents) }
+      File.read(@braille_file)
   end
 end
 
