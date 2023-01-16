@@ -32,4 +32,8 @@ class Braille
       }
       @alphabet = alphabet
   end
+
+  def braille_translator(letter)
+    @alphabet[letter.to_sym].join("\n")
+  end
 end
