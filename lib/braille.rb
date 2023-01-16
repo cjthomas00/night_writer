@@ -28,12 +28,25 @@ class Braille
         w: [".O","OO",".O"],
         x: ["OO","..","OO"],
         y: ["OO",".O","OO"],
-        z: ["O.",".O","OO"]
+        z: ["O.",".O","OO"],
+        space: ["..","..",".."]
       }
       @alphabet = alphabet
   end
 
-  def braille_translator(letter)
-    @alphabet[letter.to_sym].join("\n")
+  def braille_translator(english_text)
+    # @alphabet[letter.to_sym].join("\n")
+    braille_rows = {
+      first_row: [],
+      second_row: [],
+      third_row: []
+    }
+
+    english_text.each do |letter|
+      braille_rows[:first_row] << letter[0]
+      braille_rows[:second_row] << letter[1]
+      braille_rows[:third_row] << letter[2]
+    end
+    braille_rows[:first_row].join+"\n"+braille_rows[:second_row].join+"\n"+braille_rows[:third_row].join+"\n"
   end
 end
