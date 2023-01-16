@@ -37,7 +37,8 @@ RSpec.describe Braille do
         w: [".O","OO",".O"],
         x: ["OO","..","OO"],
         y: ["OO",".O","OO"],
-        z: ["O.",".O","OO"]
+        z: ["O.",".O","OO"],
+        space: ["..","..",".."]
       }
       expect(@braille.alphabet).to eq(alphabet)
     end
@@ -45,8 +46,24 @@ RSpec.describe Braille do
 
   describe '#braille_translator' do
     it 'converts a letter to braille equivalent' do
-      a = "O.\n..\n.."
-      expect(@braille.braille_translator("a")).to eq(a)
+      # a = "O.\n..\n.."
+      # expect(@braille.braille_translator("a")).to eq(a)
+
+      hello_world_untranslatted = [
+      ["0.", "00", ".."],
+      ["0.", ".0", ".."],
+      ["0.", "0.", "0."],
+      ["0.", "0.", "0."],
+      ["0.", ".0", "0."],
+      ["..", "..", ".."],
+      [".0", "00", ".0"],
+      ["0.", ".0", "0."],
+      ["0.", "00", "0."],
+      ["0.", "0.", "0."],
+      ["00", ".0", ".."]]
+      
+      hello_world_translatted = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+      expect(@braille.braille_translator(hello_world_untranslatted)).to eq(hello_world_translatted)
     end
   end
 end
