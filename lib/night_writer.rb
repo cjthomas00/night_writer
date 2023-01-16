@@ -1,3 +1,5 @@
+require './lib/braille'
+
 class NightWriter 
   attr_reader :message_file,
               :braille_file
@@ -17,6 +19,25 @@ class NightWriter
     File.read(@message_file)
       File.open(@braille_file, "w") { |file| file.write(message_contents) }
       File.read(@braille_file)
+  end
+
+  def convert_to_braille
+    @braille_alphabet = Braille.new
+    untranslated_braille = write_contents.chars.map do |letter|
+      if letter == " "
+        braille_letter = @braille_alphabet.alphabet[:space]
+      else letter = 
+        braille_letter = @braille_alphabet.alphabet[letter.to_sym]
+      end
+    end
+
+    @braille_alphabet.braille_translator(english_text)
+  end
+
+  def print_braille_to_file(braille)
+    braille = convert_to_braille
+    File.open(@braille_file_path, "w") { |file| file.write(braille)}
+    File.read(@braille_file_path)
   end
 end
 
