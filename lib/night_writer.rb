@@ -15,9 +15,8 @@ class NightWriter
   end
 
   def write_contents
-    message_contents = 
-    File.read(@message_file)
-      File.open(@braille_file, "w") { |file| file.write(message_contents) }
+    message_contents = File.read(@message_file)
+    File.open(@braille_file, "w") { |file| file.write(message_contents) }
     File.read(@braille_file)
   end
 
@@ -36,8 +35,8 @@ class NightWriter
 
   def print_braille_to_file(braille)
     braille = convert_to_braille
-    File.open(@braille_file_path, "w") { |file| File.write(braille)}
-    File.read(@braille_file_path)
+    File.open(@braille_file, "w") { |file| file.write(braille) }
+    File.read(@braille_file)
   end
 end
 
@@ -48,6 +47,3 @@ info = {
 
 night_writer = NightWriter.new(info)
 p night_writer.creation_message
-# night_writer.write_contents
-# braille = night_writer.convert_to_braille
-# night_writer.print_braille_to_file(braille)
