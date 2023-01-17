@@ -10,39 +10,74 @@ RSpec.describe Translator do
       expect(@translator).to be_instance_of(Translator)
     end
 
-    it 'has an alphabet' do
+    it 'has an English alphabet' do
       alphabet = {
-    "a" => ["O.","..",".."],
-    "b" => ["O.","O.",".."],
-    "c" => ["OO","..",".."],
-    "d" => ["OO",".O",".."],
-    "e" => ["O.",".O",".."],
-    "f" => ["OO","O.",".."],
-    "g" => ["OO","OO",".."],
-    "h" => ["O.","OO",".."],
-    "i" => [".O","O.",".."],
-    "j" => [".O","OO",".."],
-    "k" => ["O.","..","O."],
-    "l" => ["O.","O.","O."],
-    "m" => ["OO","..","O."],
-    "n" => ["OO",".O","O."],
-    "o" => ["O.",".O","O."],
-    "p" => ["OO","O.","O."],
-    "q" => ["OO","OO","O."],
-    "r" => ["O.","OO","O."],
-    "s" => [".O","O.","O."],
-    "t" => [".O","OO","O."],
-    "u" => ["O.","..","OO"],
-    "v" => ["O.","O.","OO"],
-    "w" => [".O","OO",".O"],
-    "x" => ["OO","..","OO"],
-    "y" => ["OO",".O","OO"],
-    "z" => ["O.",".O","OO"],
-    " " => ["..","..",".."]
-      }
-      expect(@translator.alphabet).to eq(alphabet)
+      "a" => ["O.","..",".."],
+      "b" => ["O.","O.",".."],
+      "c" => ["OO","..",".."],
+      "d" => ["OO",".O",".."],
+      "e" => ["O.",".O",".."],
+      "f" => ["OO","O.",".."],
+      "g" => ["OO","OO",".."],
+      "h" => ["O.","OO",".."],
+      "i" => [".O","O.",".."],
+      "j" => [".O","OO",".."],
+      "k" => ["O.","..","O."],
+      "l" => ["O.","O.","O."],
+      "m" => ["OO","..","O."],
+      "n" => ["OO",".O","O."],
+      "o" => ["O.",".O","O."],
+      "p" => ["OO","O.","O."],
+      "q" => ["OO","OO","O."],
+      "r" => ["O.","OO","O."],
+      "s" => [".O","O.","O."],
+      "t" => [".O","OO","O."],
+      "u" => ["O.","..","OO"],
+      "v" => ["O.","O.","OO"],
+      "w" => [".O","OO",".O"],
+      "x" => ["OO","..","OO"],
+      "y" => ["OO",".O","OO"],
+      "z" => ["O.",".O","OO"],
+      " " => ["..","..",".."]
+        }
+      expect(@translator.english_to_braille_alphabet).to eq(alphabet)
+    end
+
+    it 'has a Braille alphabet' do
+     braille_alphabet =  {
+      ["O.", "..", ".."]=>"a",
+      ["O.", "O.", ".."]=> "b",
+      ["OO", "..", ".."]=> "c",
+      ["OO", ".O", ".."]=> "d",
+      ["O.", ".O", ".."]=> "e",
+      ["OO", "O.", ".."]=> "f",
+      ["OO", "OO", ".."]=> "g",
+      ["O.", "OO", ".."]=> "h",
+      [".O", "O.", ".."]=> "i",
+      [".O", "OO", ".."]=> "j",
+      ["O.", "..", "O."]=> "k",
+      ["O.", "O.", "O."]=> "l",
+      ["OO", "..", "O."]=> "m",
+      ["OO", ".O", "O."]=> "n",
+      ["O.", ".O", "O."]=> "o",
+      ["OO", "O.", "O."]=> "p",
+      ["OO", "OO", "O."]=> "q",
+      ["O.", "OO", "O."]=> "r",
+      [".O", "O.", "O."]=> "s",
+      [".O", "OO", "O."]=> "t",
+      ["O.", "..", "OO"]=> "u",
+      ["O.", "O.", "OO"]=> "v",
+      [".O", "OO", ".O"]=> "w",
+      ["OO", "..", "OO"]=> "x",
+      ["OO", ".O", "OO"]=> "y",
+      ["O.", ".O", "OO"]=> "z",
+      ["..", "..", ".."]=> " "
+        }
+      
+      expect(@translator.braille_to_english_alphabet).to eq(braille_alphabet)
     end
   end
+
 
   describe '#braille_translator' do
     it 'converts a letter to braille equivalent' do
