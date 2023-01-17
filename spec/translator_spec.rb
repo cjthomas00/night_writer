@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-RSpec.describe Braille do 
+RSpec.describe Translator do 
   before (:each) do 
-    @braille = Braille.new
+    @translator = Translator.new
   end
 
   describe '#initialzie' do
     it 'exists' do
-      expect(@braille).to be_instance_of(Braille)
+      expect(@translator).to be_instance_of(Translator)
     end
 
     it 'has an alphabet' do
@@ -40,15 +40,12 @@ RSpec.describe Braille do
     "z" => ["O.",".O","OO"],
     " " => ["..","..",".."]
       }
-      expect(@braille.alphabet).to eq(alphabet)
+      expect(@translator.alphabet).to eq(alphabet)
     end
   end
 
   describe '#braille_translator' do
     it 'converts a letter to braille equivalent' do
-      # a = "O.\n..\n.."
-      # expect(@braille.braille_translator("a")).to eq(a)
-
       hello_world_untranslatted = [
       ["O.", "OO", ".."],
       ["O.", ".O", ".."],
@@ -63,7 +60,7 @@ RSpec.describe Braille do
       ["OO", ".O", ".."]]
 
       hello_world_translatted = "O.O.O.O.O....OO.O.O.OO\nOO.OO.O..O..OO.OOOO..O\n....O.O.O....OO.O.O...\n"
-      expect(@braille.braille_translator(hello_world_untranslatted)).to eq(hello_world_translatted)
+      expect(@translator.braille_translator(hello_world_untranslatted)).to eq(hello_world_translatted)
     end
 
     it 'creates a new line after 40 English characters' do
@@ -125,7 +122,7 @@ RSpec.describe Braille do
     message_formatted = 
     "O.O.OOOOO.OOOOO..O.OO.O.OOOOO.OOOOO..O.OO.O..OOOOOO...O.O.OOOOO.OOOOO..O.OO.O.OO\n..O....O.OO.OOOOO.OO..O....O.OO.OOOOO.OO..O.OO...O.O....O....O.OO.OOOOO.OO..O...\n....................O.O.O.O.O.O.O.O.O.O.OOOO.OOOOOOO......................O.O.O.\nOOO.OOOOO..O.OO.O..OOOOOO.\n.O.OO.OOOOO.OO..O.OO...O.O\nO.O.O.O.O.O.O.OOOO.OOOOOOO\n"
     
-    expect(@braille.braille_translator(unformatted_message)).to eq(message_formatted)
+    expect(@translator.braille_translator(unformatted_message)).to eq(message_formatted)
     end
   end
 end
