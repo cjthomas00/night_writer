@@ -73,7 +73,6 @@ RSpec.describe Translator do
       ["O.", ".O", "OO"]=> "z",
       ["..", "..", ".."]=> " "
         }
-      
       expect(@translator.braille_to_english_alphabet).to eq(braille_alphabet)
     end
   end
