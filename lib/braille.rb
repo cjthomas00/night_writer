@@ -35,7 +35,6 @@ class Braille
   end
 
   def braille_translator(english_text)
-    # @alphabet[letter.to_sym].join("\n")
     braille_rows = {
       first_row: [],
       second_row: [],

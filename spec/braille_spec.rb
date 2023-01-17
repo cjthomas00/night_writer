@@ -50,19 +50,19 @@ RSpec.describe Braille do
       # expect(@braille.braille_translator("a")).to eq(a)
 
       hello_world_untranslatted = [
-      ["0.", "00", ".."],
-      ["0.", ".0", ".."],
-      ["0.", "0.", "0."],
-      ["0.", "0.", "0."],
-      ["0.", ".0", "0."],
+      ["O.", "OO", ".."],
+      ["O.", ".O", ".."],
+      ["O.", "O.", "O."],
+      ["O.", "O.", "O."],
+      ["O.", ".O", "O."],
       ["..", "..", ".."],
-      [".0", "00", ".0"],
-      ["0.", ".0", "0."],
-      ["0.", "00", "0."],
-      ["0.", "0.", "0."],
-      ["00", ".0", ".."]]
-      
-      hello_world_translatted = "0.0.0.0.0....00.0.0.00\n00.00.0..0..00.0000..0\n....0.0.0....00.0.0...\n"
+      [".O", "OO", ".O"],
+      ["O.", ".O", "O."],
+      ["O.", "OO", "O."],
+      ["O.", "O.", "O."],
+      ["OO", ".O", ".."]]
+
+      hello_world_translatted = "O.O.O.O.O....OO.O.O.OO\nOO.OO.O..O..OO.OOOO..O\n....O.O.O....OO.O.O...\n"
       expect(@braille.braille_translator(hello_world_untranslatted)).to eq(hello_world_translatted)
     end
   end
