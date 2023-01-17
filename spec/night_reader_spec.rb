@@ -45,7 +45,7 @@ RSpec.describe NightReader do
 
   describe '#print_english_to_file' do
     it 'prints the message in English' do
-      expect(@night_reader.print__to_file(@night_reader.convert_to_english)).to eq('hello world')
+      expect(@night_reader.print_english_to_file(@night_reader.convert_to_english)).to eq('hello world')
     end
   end
 end
