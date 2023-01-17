@@ -15,7 +15,7 @@ RSpec.describe NightWriter do
     end
 
     it 'has a message' do
-      expect(@night_writer.message_file). to eq('message.txt')
+      expect(@night_writer.message_file).to eq('message.txt')
     end
 
     it 'has braille' do
@@ -46,6 +46,6 @@ RSpec.describe NightWriter do
     it 'prints the message in braille' do
       hello_world = "O.O.O.O.O....OO.O.O.OO\nOO.OO.O..O..OO.OOOO..O\n....O.O.O....OO.O.O...\n"
       expect(@night_writer.print_braille_to_file(@night_writer.convert_to_braille)).to eq(hello_world)
-  end
+    end
   end
 end
