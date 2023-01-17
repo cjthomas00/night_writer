@@ -31,7 +31,7 @@ class NightWriter
       end
     end
 
-    @braille_alphabet.braille_translator(english_text)
+    @braille_alphabet.braille_translator(untranslated_braille)
   end
 
   def print_braille_to_file(braille)
