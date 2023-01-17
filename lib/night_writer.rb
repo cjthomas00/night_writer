@@ -24,7 +24,7 @@ class NightWriter
     @braille_alphabet = Translator.new
     untranslated_braille = []
     write_contents.chars.each do |letter|
-        untranslated_braille << @braille_alphabet.alphabet[letter]
+        untranslated_braille << @braille_alphabet.english_to_braille_alphabet[letter]
       end
     @braille_alphabet.braille_translator(untranslated_braille)
   end
