@@ -22,11 +22,12 @@ class NightWriter
 
   def convert_to_braille
     @braille_alphabet = Braille.new
-    untranslated_braille = write_contents.chars.map do |letter|
+    untranslated_braille = []
+    write_contents.chars.each do |letter|
       if letter == " "
-        braille_letter = @braille_alphabet.alphabet[:space]
+        untranslated_braille << @braille_alphabet.alphabet[:space]
       else letter = 
-        braille_letter = @braille_alphabet.alphabet[letter.to_sym]
+        untranslated_braille << @braille_alphabet.alphabet[letter.to_sym]
       end
     end
 
