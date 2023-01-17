@@ -1,3 +1,5 @@
+require './lib/translator'
+
 class NightReader
   attr_reader :message_file,
               :braille_file
